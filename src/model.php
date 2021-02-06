@@ -29,7 +29,13 @@ abstract class model
          var_dump($sql);
     }
     public function update(){
-       $sql = 'UPDATE user SET name = :name, email = :email WHERE id = :id';
+        $cols = get_object_vars($this);
+
+        $values = array_map(function ($item){
+            return ':' . $item;
+        }, array_keys($cols));
+
+       $sql = ' UPDATE  '. strtolower(self::getRealName(static::class,'//')) .  ' SET (' . implode(', ', array_keys($cols)) . ') = ('. implode(', ', $values) .') WHERE id = :id ';
        var_dump($sql);
     }
     public function save($id){

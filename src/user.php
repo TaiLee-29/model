@@ -6,6 +6,8 @@ namespace Hillel;
 
 
 
+
+
 final class user extends model
 {
     protected $id ;
