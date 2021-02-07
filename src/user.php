@@ -18,16 +18,10 @@ final class user extends model
 
 
 
-    public function getId()
-    {
-        return $this->id;
-    }
 
 
-    public function setId($id): void
-    {
-        $this->id = $id;
-    }
+
+
 
 
     public function getName()
